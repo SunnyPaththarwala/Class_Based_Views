@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        table.center {
+            margin-left: auto; 
+            margin-right: auto;}
+            
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(255, 255, 255);
+            }
+                
+        * {
+            box-sizing: border-box;
+            }
+    </style>
+    </head>
+    <body style="background-color: #b4dccd;">
+
+        <table border="2" class="center">
+            <caption><h3>Students Details</h3></caption>
+            <tr>
+                <th>Id.</th>
+                <th>Name</th>
+                <th>Branch</th>
+                <th>Percentage</th>
+                <th>Action</th>
+            </tr>
+            {% for stu in students %}
+            <tr>
+                <td>{{ stu.id }}</td>
+                <td>{{ stu.name }}</td>
+                <td>{{ stu.branch }}</td>
+                <td>{{ stu.perc }}</td>
+                <td><a href="/update/{{ stu.id }}">Update</a> &nbsp;&nbsp;
+                    <a href="/delete/{{ stu.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table> <br>
+        <center>
+            <button style="text-align: center; font-size:large;"
+                class="btn btn-primary btn-lg btn-block">
+                <a href="/addstudent">Add a new Student</a>
+            </center>
+
+        </body>
+    </html>
